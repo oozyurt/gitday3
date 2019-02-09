@@ -13,14 +13,17 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 //Login tests are maintained here.
 //without page object approach
 
-
 public class LoginTests {
 
    WebDriver driver;
+
+   Map<String,String> myMap= new HashMap<String, String>();
 
    @BeforeMethod
     public void SetUp(){
@@ -34,7 +37,7 @@ public class LoginTests {
        driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx?ReturnUrl=%2fsamples%2ftestcomplete12%2fweborders%2fDefault.aspx");
        driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester");
        driver.findElement(By.id("ctl00_MainContent_password")).sendKeys("test"+ Keys.ENTER);
-       String title = driver.getTitle():
+       String title = driver.getTitle();
        Assert.assertEquals(driver.getTitle(),"Web Orders");
 
 
@@ -59,7 +62,7 @@ public class LoginTests {
 
 
       driver.findElement(By.id("ctl00_logout")).click();
-      String title = driver.getTitle():
+      String title = driver.getTitle();
       Assert.assertEquals(driver.getTitle(),"Web Orders Login");
 
    }
